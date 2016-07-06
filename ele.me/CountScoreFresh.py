@@ -39,7 +39,7 @@ class CountScoreFresh:
         tmpList = cu.stringToFloat(tmpList)
         tmpList = sorted(tmpList)
         tmpList = cu.numToString(tmpList)
-        for key in tmpList.keys():
+        for key in tmpList:
             print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"0"])
             print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key + "1"])
 
