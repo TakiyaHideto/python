@@ -36,7 +36,7 @@ class CountScoreFresh:
     def __sortScoreFreshDict(self):
         tmpList = cu.extractColumnFromString(self.scoreFreshDict, separater="_", index=0)
         tmpList = cu.stringToInt(tmpList)
-        tmpList = cu.sort(tmpList)
+        tmpList = sorted(tmpList)
         tmpList = cu.intToString(tmpList)
         for key in tmpList.keys():
             print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"0"])

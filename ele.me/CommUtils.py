@@ -1,8 +1,5 @@
 # common utilities
 
-def sort(array):
-    return sort(array)
-
 def stringToInt(arrayString):
     try:
         return map(lambda x:int(x), arrayString)
