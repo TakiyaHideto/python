@@ -35,13 +35,12 @@ class CountScoreFresh:
 
     def __sortScoreFreshDict(self):
         tmpList = cu.extractColumnFromString(self.scoreFreshDict, separater="_", index=0)
-        print tmpList
         tmpList = cu.stringToFloat(tmpList)
         tmpList = sorted(tmpList)
         tmpList = cu.numToString(tmpList)
         for key in tmpList:
-            print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"0"])
-            print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key + "1"])
+            print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"_0"])
+            print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key+"_1"])
 
 
     def runMe(self):
