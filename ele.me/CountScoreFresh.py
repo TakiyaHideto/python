@@ -39,8 +39,14 @@ class CountScoreFresh:
         tmpList = sorted(tmpList)
         tmpList = cu.numToString(tmpList)
         for key in tmpList:
-            print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"_0"])
-            print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key+"_1"])
+            try:
+                print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"_0"])
+            except KeyError:
+                print "keyError"
+            try:
+                print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key + "_1"])
+            except KeyError:
+                print "keyError"
 
 
     def runMe(self):
