@@ -42,11 +42,11 @@ class CountScoreFresh:
             try:
                 print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"_0"])
             except KeyError:
-                print "keyError"
+                pass
             try:
                 print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key + "_1"])
             except KeyError:
-                print "keyError"
+                pass
 
 
     def runMe(self):
