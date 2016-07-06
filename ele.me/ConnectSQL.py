@@ -1,0 +1,1 @@
+# this python script is for creating class of connecting sql database
