@@ -1,5 +1,6 @@
 import json
 import ParseJson as pj
+import CommUtils as cu
 
 class CountScoreFresh:
     def __init__(self, inputFile):
@@ -16,7 +17,7 @@ class CountScoreFresh:
                 jsonObject = pj.parseJson(line)
                 for key in jsonObject.keys():
                     foodName = key
-                    preferScore = round(jsonObject[foodName]["score"],2)
+                    preferScore = round(jsonObject[foodName]["score"],1)
                     isFresh = jsonObject[foodName]["is_fresh"]
                     self.__putInfoIntoDict(self.scoreFreshDict, key="{0}_{1}".format(preferScore, isFresh))
                     self.scoreMax = max(self.scoreMax, preferScore)
