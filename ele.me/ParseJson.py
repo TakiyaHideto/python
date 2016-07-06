@@ -10,3 +10,4 @@ def extractValue(jsonObject, key):
     # the parameter key is required as string
     return jsonObject[key]
 
+print " "
