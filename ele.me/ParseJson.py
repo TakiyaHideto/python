@@ -3,7 +3,7 @@
 import json
 
 def parseJson(jsonString):
-    jsonObject = json.loads()
+    jsonObject = json.loads(jsonString)
     return jsonObject
 
 def extractValue(jsonObject, key):
