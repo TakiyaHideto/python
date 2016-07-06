@@ -1,12 +1,12 @@
 # common utilities
 
-def stringToInt(arrayString):
+def stringToFloat(arrayString):
     try:
-        return map(lambda x:int(x), arrayString)
+        return map(lambda x:float(x), arrayString)
     except Exception:
         print "Wrong Type var in array"
 
-def intToString(arrayInt):
+def numToString(arrayInt):
     try:
         return map(lambda x:str(x), arrayInt)
     except Exception:
