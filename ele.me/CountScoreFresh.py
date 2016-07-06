@@ -32,10 +32,20 @@ class CountScoreFresh:
     def __pritnInfo(self):
         print "max:{0}".format(self.scoreMax)
         print "min:{0}".format(self.scoreMin)
-        print self.scoreFreshDict
+
+    def __sortScoreFreshDict(self):
+        tmpList = cu.extractColumnFromString(self.scoreFreshDict, separater="_", index=0)
+        tmpList = cu.stringToInt(tmpList)
+        tmpList = cu.sort(tmpList)
+        tmpList = cu.intToString(tmpList)
+        for key in tmpList.keys():
+            print "{0}_{1}:{2}".format(key, "0", self.scoreFreshDict[key+"0"])
+            print "{0}_{1}:{2}".format(key, "1", self.scoreFreshDict[key + "1"])
+
 
     def runMe(self):
         self.__loadData()
+        self.__sortScoreFreshDict()
         self.__pritnInfo()
 
 if __name__ == "__main__":
