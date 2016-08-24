@@ -6,6 +6,12 @@ def stringToFloat(arrayString):
     except Exception:
         print "Wrong Type var in array"
 
+def stringToInt(arrayString):
+    try:
+        return map(lambda x:int(x), arrayString)
+    except Exception:
+        print "Wrong Type var in array"
+
 def numToString(arrayInt):
     try:
         return map(lambda x:str(x), arrayInt)
