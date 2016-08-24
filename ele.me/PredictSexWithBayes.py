@@ -48,32 +48,33 @@ class PredictSexWithBayes:
 
     def loadData(self, input_file):
         count = 0
-        with open(input_file, 'rb') as file_in:
-            for line in file_in:
-                count += 1
-                if count % 10000 == 0:
-                    print count
-                try:
-                    elements = line.strip().split('\t')
-                    name = elements[0]
-                    sex = elements[1]
-                    if sex == '0':
-                        self.undined_user_list.append(name)
-                        continue
-                    # prob of single word
-                    self.inputNameInfo(name, self.char_freq_dict)
-                    # prob of single sex
-                    self.inputDict(sex, self.sex_freq_dict)
-                    # prob of word given sex
-                    word_prob_given_sex = {
-                        '1': lambda: self.inputNameInfo(name, self.char_male_freq_dict),
-                        '2': lambda: self.inputNameInfo(name, self.char_female_freq_dict)
-                    }
-                    word_prob_given_sex[sex]()
-                    # prob of sex given word
-                    self.inputSexInfoGiveName(sex, name, self.sex_word_dict)
-                except IndexError:
+        # with open(input_file, 'rb') as file_in:
+        file_in = open(input_file, 'rb').readlines()
+        for line in file_in:
+            count += 1
+            if count % 10000 == 0:
+                print count
+            try:
+                elements = line.strip().split('\t')
+                name = elements[0]
+                sex = elements[1]
+                if sex == '0':
+                    self.undined_user_list.append(name)
                     continue
+                # prob of single word
+                self.inputNameInfo(name, self.char_freq_dict)
+                # prob of single sex
+                self.inputDict(sex, self.sex_freq_dict)
+                # prob of word given sex
+                word_prob_given_sex = {
+                    '1': lambda: self.inputNameInfo(name, self.char_male_freq_dict),
+                    '2': lambda: self.inputNameInfo(name, self.char_female_freq_dict)
+                }
+                word_prob_given_sex[sex]()
+                # prob of sex given word
+                self.inputSexInfoGiveName(sex, name, self.sex_word_dict)
+            except IndexError:
+                continue
 
     def sumDictValue(self, dict):
         sum = 0
